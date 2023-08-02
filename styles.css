@@ -1,0 +1,88 @@
+/* styles.css */
+
+/* ... Estilos previos ... */
+
+/* Animación de fondo en el encabezado */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    from {
+        background-color: #333;
+    }
+    to {
+        background-color: #555;
+    }
+}
+
+/* Animación de entrada para los servicios */
+#servicios ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#servicios li {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: serviceEntryAnimation 1s forwards;
+}
+
+@keyframes serviceEntryAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de zoom para el botón de contacto */
+#contacto a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#contacto a:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    nav ul {
+        text-align: center;
+    }
+    
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    #servicios ul {
+        justify-content: flex-start;
+    }
+    
+    #servicios li {
+        width: calc(50% - 20px);
+    }
+}
