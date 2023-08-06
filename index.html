@@ -10,28 +10,98 @@
     <header>
         <h1>Servicios Administrativos Online</h1>
         <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#servicios">Nuestros Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <ul class="menu">
+                <li><a href="#" class="boton">Inicio</a></li>
+                              <li><a href="contacto.html" class="boton">Contacto</a></li>
+
             </ul>
         </nav>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const servicios = document.querySelectorAll(".servicio");
+            
+                servicios.forEach(servicio => {
+                    const titulo = servicio.querySelector(".servicio-titulo");
+                    const contenido = servicio.querySelector(".servicio-contenido");
+            
+                    titulo.addEventListener("click", function() {
+                        servicios.forEach(s => {
+                            if (s !== servicio) {
+                                s.classList.remove("activo");
+                                s.querySelector(".servicio-contenido").style.maxHeight = null;
+                            }
+                        });
+            
+                        servicio.classList.toggle("activo");
+            
+                        if (servicio.classList.contains("activo")) {
+                            contenido.style.maxHeight = contenido.scrollHeight + "px";
+                        } else {
+                            contenido.style.maxHeight = null;
+                        }
+                    });
+                });
+            });
+            </script>
+            
+
     </header>
 
     <section id="servicios">
-        <h2>Nuestros Servicios Administrativos</h2>
-        <ul>
-            <li>Servicio de Contabilidad y Finanzas</li>
-            <li>Gestión de Recursos Humanos</li>
-            <li>Asesoría Legal y Jurídica</li>
-            <li>Gestión de Documentación</li>
-        </ul>
+        <h2>Nuestros Servicios</h2>
+        <div class="servicios-container">
+            <div class="servicio">
+                <button class="servicio-titulo">REDACCIÓN DE DOCUMENTOS</button>
+                <div class="servicio-contenido">
+                    <p>Nos encargamos de preparar tus presentaciones, tus hojas de cálculo, etc. Ya no tendrás que perder más tiempo con la redacción de las cartas comerciales. Sólo tendrás que supervisar y dar tu visto bueno.</p>
+                    <p>Así de simple.</p>
+                </div>
+            </div>
+            <div class="servicio">
+                <button class="servicio-titulo">GESTIÓN DE PEDIDOS Y PROVEEDORES</button>
+                <div class="servicio-contenido">
+                    <p>A veces la relación con los proveedores lleva demasiado tiempo, hay que reclamar pedidos incompletos … todo eso no tiene que hacerte perder tiempo. Nos encargamos de que todo llegue a tiempo o sino reclamar hasta que todo se cumpla en plazo y forma.</p>
+                </div>
+            </div>
+            <div class="servicio">
+                <button class="servicio-titulo">ELABORACIÓN DE PRESUPUESTOS Y FACTURAS</button>
+                <div class="servicio-contenido">
+                    <p>A veces la relación con los proveedores lleva demasiado tiempo, hay que reclamar pedidos incompletos … todo eso no tiene que hacerte perder tiempo. Nos encargamos de que todo llegue a tiempo o sino reclamar hasta que todo se cumpla en plazo y forma.</p>
+                </div>
+            </div>
+            <div class="servicio">
+                <button class="servicio-titulo">MANTENIMIENTO DE PÁGINAS WEB</button>
+                <div class="servicio-contenido">
+            <p>Administración completa de tu web y blog:</p>
+            <p>√ mantenimiento de plugins.</p>
+            <p>√ moderación de comentarios, preparación de cada post-busqueda de imágenes, ponerlo en borrador y publicarlo, etc.</p>   
+            <p>√ preparar carritos de compra, enlaces de pago, e integrarlos a tus páginas</p>
+            <p>√ ayudarte con los detalles técnicos y administrativos del lanzamiento de tus productos digitales (actualización de tu sitio web, configuración de pagos, email marketing, transcripción de tus audios y/o videos, etc)</p>
+                </div>
+            </div>
+            <div class="servicio">
+                <button class="servicio-titulo">GESTIONES DIARIAS</button>
+                <div class="servicio-contenido">
+            <p>Gestión de todos los asuntos que estás delegando en distintas personas de tu equipo o proveedores externos (para centralizar todas las comunicaciones y coordinación de los trabajos en una sola persona).</p>
+            <p>√ Programar tus redes sociales</p>
+            <p>√ Redactar contenidos y traducirlos</p>   
+            <p>√ Actualización de bases de datos</p>
+            <p>√ Mantenimiento WordPress</p>
+            <p>√ Actualización de tus contactos</p>
+            <p>√ Elaborar y enviar newsletters</p>
+            <p>√ Investigar: internet / teléfono / email</p>
+            <p>√ Transcripciones</p>
+            <p>√ ......</p>
+                </div>
+            </div>
+            <!-- ... Agrega más bloques de servicio ... -->
+        </div>
     </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Puedes contactarnos en <a href="mailto:info@serviciosadministrativosonline.com">info@serviciosadministrativosonline.com</a></p>
-    </section>
+
+    
+
 
     <footer>
         <p>&copy; 2023 Servicios Administrativos Online</p>

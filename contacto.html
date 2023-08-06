@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Servicios Administrativos Online</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactForm = document.getElementById("contact-form");
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+        
+                // ...
+
+contactForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    // Obtén los datos del formulario
+    const formData = new FormData(contactForm);
+
+    try {
+        const response = await fetch("send_email.php", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (response.ok) {
+            const successMessage = document.createElement("p");
+            successMessage.textContent = "Consulta enviada con éxito. Nos pondremos en contacto contigo pronto.";
+            successMessage.style.color = "green";
+            contactForm.appendChild(successMessage);
+        } else {
+            throw new Error("Error al enviar la consulta.");
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+                // Muestra un mensaje de éxito (simulado)
+                const successMessage = document.createElement("p");
+                successMessage.textContent = "Consulta enviada con éxito. Nos pondremos en contacto contigo pronto.";
+                successMessage.style.color = "green";
+                contactForm.appendChild(successMessage);
+            });
+        });
+        </script>
+        
+
+</head>
+<body>
+    <header>
+        <h1>Contacto - Servicios Administrativos Online</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html" class="boton">Inicio</a></li>
+                <li><a href="contacto.html" class="boton">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Puedes contactarnos en <a href="mailto:nancho2k3@gmail.com">info@serviciosadministrativosonline.com</a></p>
+
+        <h3>Formulario de Contacto</h3>
+        <form id="contact-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+    
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+    
+            <label for="motivo">Motivo de la consulta:</label>
+            <textarea id="motivo" name="motivo" rows="4" required></textarea>
+    
+            <button type="submit">Consultar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Servicios Administrativos Online</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactForm = document.getElementById("contact-form");
+        
+            contactForm.addEventListener("submit", async function(event) {
+                event.preventDefault();
+        
+                // Realiza el envío del formulario o cualquier otra acción necesaria
+        
+                // Muestra un mensaje de éxito
+                const successMessage = document.createElement("p");
+                successMessage.textContent = "Consulta enviada con éxito. Nos pondremos en contacto contigo pronto.";
+                successMessage.style.color = "green";
+                contactForm.appendChild(successMessage);
+        
+                // Redirecciona a la página inicial después de 2 segundos
+                setTimeout(function() {
+                    window.location.href = "index.html";
+                }, 2000); // 2000 milisegundos (2 segundos)
+            });
+        });
+        </script>
+        
+
+</body>
+</html>
